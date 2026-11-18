@@ -2,7 +2,7 @@
 (() => {
 "use strict";
 const { $, $$, brl, esc, art, byId, ico, waLink, reduce, cart, user, coupon: couponStore } = CC;
-const numeroWhatsApp = "5515988089701";
+const numeroWhatsApp = "5515988081803";
 const DELIVERY_FEE = 12;
 const COUPONS = {
   DOCURA: { label: "Cupom Doçura", flat: 5 },
