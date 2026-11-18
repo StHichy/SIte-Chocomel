@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Produtos | Cris Chocomel</title>
+<meta name="description" content="Cardápio de pães de mel, brigadeiros gourmet, cones trufados e caixas de presente.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/produtos.css">
+</head>
+<body data-page="produtos">
+<div class="announce"><div class="container">Ingredientes puros e selecionados para manter a qualidade que você ama. <a href="produtos.html">Ver produtos</a></div></div>
+<header class="site-nav">
+  <div class="container d-flex flex-wrap align-items-center gap-2">
+    <a class="brand" href="index.html" aria-label="Cris Chocomel, início">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 2l19 11v22L24 46 5 35V13z" fill="#E59E00"/><path d="M24 2l19 11v22L24 46 5 35V13z" fill="none" stroke="#2C1708" stroke-width="2"/><ellipse cx="24" cy="27" rx="9" ry="7.5" fill="#2C1708"/><path d="M19 22.5v9M24 21v12M29 22.5v9" stroke="#E59E00" stroke-width="2.6"/><ellipse cx="19" cy="17" rx="4.5" ry="6" fill="#FFF4DC" transform="rotate(-24 19 17)"/><ellipse cx="29" cy="17" rx="4.5" ry="6" fill="#FFF4DC" transform="rotate(24 29 17)"/></svg>
+      <span><span class="brand-name">Cris <span>chocomel</span></span><span class="brand-sub">Doceria artesanal</span></span>
+    </a>
+    <nav class="collapse navbar-collapse d-lg-flex order-last order-lg-0 justify-content-lg-center" id="mainNav" aria-label="Principal">
+      <ul class="navbar-nav gap-lg-1 py-2 py-lg-0"><li class="nav-item"><a class="nav-link" data-nav="index" href="index.html">Início</a></li><li class="nav-item"><a class="nav-link" data-nav="produtos" href="produtos.html">Produtos</a></li><li class="nav-item"><a class="nav-link" data-nav="sobre" href="sobre.html">Sobre a loja</a></li><li class="nav-item"><a class="nav-link" data-nav="login" href="login.html">Entrar</a></li></ul>
+    </nav>
+    <div class="d-flex align-items-center gap-2 ms-auto ms-lg-0">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Alternar tema claro e escuro"></button>
+      <a class="acct d-none d-sm-inline-flex" id="acctBtn" href="login.html"></a>
+      <a class="icon-btn cart" href="carrinho.html" aria-label="Abrir sacola"><span id="cartIcon"></span><span class="badge-count" id="cartCount">0</span></a>
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menu"><span class="navbar-toggler-icon"></span></button>
+    </div>
+  </div>
+</header>
+<main>
+<div class="page-head">
+    <div class="container">
+      <span class="eyebrow">Menu artesanal</span>
+      <h1 class="mt-2 mb-3">Nossos doces feitos à mão</h1>
+      <p class="lead-s mb-4">Escolha por categoria, adicione à sacola e feche seu pedido ou monte sua caixa personalizada.</p>
+      <div class="row g-3 align-items-center">
+        <div class="col-lg-7"><div class="chips" id="chips" role="group" aria-label="Categorias"></div></div>
+        <div class="col-lg-3 col-sm-7"><label class="visually-hidden" for="q">Buscar doce</label><input class="form-control" id="q" type="search" placeholder="Buscar doce…" autocomplete="off"></div>
+        <div class="col-lg-2 col-sm-5"><label class="visually-hidden" for="sort">Ordenar</label><select class="form-select" id="sort"><option value="rel">Destaques</option><option value="asc">Menor preço</option><option value="desc">Maior preço</option><option value="az">A a Z</option></select></div>
+      </div>
+    </div>
+  </div>
+  <div class="sec pt-4"><div class="container"><div class="row g-4" id="grid"></div><div class="empty" id="noResult" hidden><h3>Nenhum doce encontrado</h3><p>Tente outra palavra ou volte para todas as categorias.</p><button class="btn btn-line btn-sm" type="button" id="clearFilters">Limpar filtros</button></div></div></div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-5"><a class="brand mb-3" href="index.html"><span class="brand-name">Cris <span>chocomel</span></span></a><p class="mb-0">Feito à mão com muito carinho. Pães de mel, brigadeiros gourmet, cones trufados e caixas de presente.</p></div>
+      <div class="col-6 col-md-3"><h3 class="h6 text-uppercase" style="letter-spacing:.14em;font-family:var(--f-body);color:var(--on-hero)">Navegue</h3><div class="d-grid gap-1"><a href="index.html">Início</a><a href="produtos.html">Produtos</a><a href="sobre.html">Sobre a loja</a><a href="carrinho.html">Sacola</a><a href="login.html">Entrar</a><a href="cadastro.html">Criar conta</a></div></div>
+      <div class="col-6 col-md-4"><h3 class="h6 text-uppercase" style="letter-spacing:.14em;font-family:var(--f-body);color:var(--on-hero)">Pedidos</h3><p>Confirmação pelo WhatsApp.</p><a class="btn btn-honey btn-sm wa-link" href="https://wa.me/" target="_blank" rel="noopener">Falar no WhatsApp</a></div>
+    </div>
+    <hr style="border-color:rgba(255,244,220,.18);margin-block:2rem 1rem"><p class="small mb-0">© 2026 Cris Chocomel. Todos os direitos reservados.</p>
+  </div>
+</footer>
+<div class="toast-wrap" id="toasts" aria-live="polite"></div>
+<div class="modal fade" id="pModal" tabindex="-1" aria-labelledby="pmTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content">
+    <div class="row g-0"><div class="col-md-5 modal-art" id="pmArt"></div>
+      <div class="col-md-7 p-4 d-flex flex-column gap-2"><div class="d-flex justify-content-between align-items-start gap-3"><div><span class="eyebrow" id="pmCat"></span><h2 id="pmTitle" style="font-size:1.8rem" class="mt-1"></h2></div><button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button></div>
+        <p class="muted" id="pmDesc"></p><p class="small muted" id="pmNote"></p>
+        <div class="mt-auto d-flex flex-wrap align-items-center justify-content-between gap-3"><span class="price" id="pmPrice"></span>
+          <div class="d-flex align-items-center gap-2"><div class="qty"><button type="button" id="pmMinus" aria-label="Menos"></button><span id="pmQty">1</span><button type="button" id="pmPlus" aria-label="Mais"></button></div><button class="btn btn-honey" id="pmAdd" type="button">Adicionar</button></div></div>
+      </div></div>
+  </div></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/produtos.js"></script>
+</body>
+</html>

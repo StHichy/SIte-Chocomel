@@ -1,0 +1,5 @@
+/* produtos.css — filtros do cardápio */
+.chips{display:flex;flex-wrap:wrap;gap:.5rem}
+.chip{border:2px solid var(--line);background:var(--surface);color:var(--fg);font-weight:700;font-size:.9rem;padding:.45rem 1rem;border-radius:999px;transition:all .2s}
+.chip:hover{border-color:var(--fg)}
+.chip[aria-pressed="true"]{background:var(--solid);border-color:var(--solid);color:var(--on-solid)}

@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sua sacola | Cris Chocomel</title>
+<meta name="description" content="Sacola, entrega e pagamento do seu pedido.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/carrinho.css">
+</head>
+<body data-page="carrinho">
+<div class="announce"><div class="container">Ingredientes puros e selecionados para manter a qualidade que você ama. <a href="produtos.html">Ver produtos</a></div></div>
+<header class="site-nav">
+  <div class="container d-flex flex-wrap align-items-center gap-2">
+    <a class="brand" href="index.html" aria-label="Cris Chocomel, início">
+      <svg class="brand-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 2l19 11v22L24 46 5 35V13z" fill="#E59E00"/><path d="M24 2l19 11v22L24 46 5 35V13z" fill="none" stroke="#2C1708" stroke-width="2"/><ellipse cx="24" cy="27" rx="9" ry="7.5" fill="#2C1708"/><path d="M19 22.5v9M24 21v12M29 22.5v9" stroke="#E59E00" stroke-width="2.6"/><ellipse cx="19" cy="17" rx="4.5" ry="6" fill="#FFF4DC" transform="rotate(-24 19 17)"/><ellipse cx="29" cy="17" rx="4.5" ry="6" fill="#FFF4DC" transform="rotate(24 29 17)"/></svg>
+      <span><span class="brand-name">Cris <span>chocomel</span></span><span class="brand-sub">Doceria artesanal</span></span>
+    </a>
+    <nav class="collapse navbar-collapse d-lg-flex order-last order-lg-0 justify-content-lg-center" id="mainNav" aria-label="Principal">
+      <ul class="navbar-nav gap-lg-1 py-2 py-lg-0"><li class="nav-item"><a class="nav-link" data-nav="index" href="index.html">Início</a></li><li class="nav-item"><a class="nav-link" data-nav="produtos" href="produtos.html">Produtos</a></li><li class="nav-item"><a class="nav-link" data-nav="sobre" href="sobre.html">Sobre a loja</a></li><li class="nav-item"><a class="nav-link" data-nav="login" href="login.html">Entrar</a></li></ul>
+    </nav>
+    <div class="d-flex align-items-center gap-2 ms-auto ms-lg-0">
+      <button class="icon-btn" id="themeBtn" type="button" aria-label="Alternar tema claro e escuro"></button>
+      <a class="acct d-none d-sm-inline-flex" id="acctBtn" href="login.html"></a>
+      <a class="icon-btn cart" href="carrinho.html" aria-label="Abrir sacola"><span id="cartIcon"></span><span class="badge-count" id="cartCount">0</span></a>
+      <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menu"><span class="navbar-toggler-icon"></span></button>
+    </div>
+  </div>
+</header>
+<main>
+<div class="sec pt-4">
+    <div class="container">
+      <h1 class="mb-0">Sua sacola de doces</h1>
+      <ol class="stepper" id="stepper" aria-label="Etapas do pedido">
+        <li data-s="1"><b>1</b>Sacola</li><li data-s="2"><b>2</b>Entrega</li><li data-s="3"><b>3</b>Pagamento</li>
+      </ol>
+
+      <div id="orderDone" hidden class="panel text-center mx-auto" style="max-width:640px">
+        <div class="done-mark"><span data-i="check"></span></div>
+        <h2 class="mb-2">Pedido recebido!</h2>
+        <p class="muted mb-1">Número do pedido <strong id="doneNum"></strong></p>
+        <p class="muted" id="doneMsg"></p>
+        <div class="text-start p-3 my-4" style="background:var(--surface-2);border-radius:16px" id="doneList"></div>
+        <div class="d-grid gap-2"><a class="btn btn-honey btn-lg" id="waSend" target="_blank" rel="noopener" href="https://wa.me/"><span data-i="chat"></span> Enviar pedido pelo WhatsApp</a><a class="btn btn-line" href="produtos.html">Voltar aos produtos</a></div>
+      </div>
+
+      <div class="row g-4" id="checkout">
+        <div class="col-lg-8">
+          <div class="panel" id="step1">
+            <div class="d-flex justify-content-between align-items-center mb-2"><h2 class="h4 mb-0" style="font-size:1.5rem">Itens selecionados</h2><span class="muted" id="itemsLabel"></span></div>
+            <div id="lines"></div>
+            <div class="empty" id="cartEmpty" hidden><div style="max-width:150px" class="mx-auto" id="emptyArt"></div><h3 class="mt-3">Sua sacola está vazia</h3><p>Que tal começar por um pão de mel?</p><a class="btn btn-honey" href="produtos.html">Ver produtos</a></div>
+            <a class="btn btn-line btn-sm mt-3" id="addMore" href="produtos.html"><span data-i="plus"></span> Adicionar mais doces</a>
+          </div>
+          <form class="panel" id="step2" hidden novalidate>
+            <h2 class="h4 mb-4" style="font-size:1.5rem"><span data-i="pin"></span> Entrega ou retirada</h2>
+            <div class="row g-3">
+              <div class="col-sm-7"><label class="form-label" for="cName">Nome completo</label><input class="form-control" id="cName" required autocomplete="name"><div class="invalid-feedback">Informe seu nome.</div></div>
+              <div class="col-sm-5"><label class="form-label" for="cWpp">WhatsApp (DDD + número)</label><input class="form-control" id="cWpp" required inputmode="tel" pattern="[0-9\s\(\)\+\-]{10,}" placeholder="(11) 90000-0000" autocomplete="tel"><div class="invalid-feedback">Informe DDD e número.</div></div>
+              <div class="col-12"><span class="form-label d-block">Forma de recebimento</span>
+                <div class="row g-3">
+                  <div class="col-md-6"><label class="opt"><input class="form-check-input" type="radio" name="mode" value="entrega" checked><span><strong>Entrega via motoboy</strong><small>Embalagem térmica protegida • R$ 12,00</small></span></label></div>
+                  <div class="col-md-6"><label class="opt"><input class="form-check-input" type="radio" name="mode" value="retirada"><span><strong>Retirada no ateliê</strong><small>Grátis, sem taxa de frete</small></span></label></div>
+                </div></div>
+              <div id="addrBox" class="col-12"><div class="row g-3">
+                <div class="col-sm-7"><label class="form-label" for="cAddr">Endereço e número</label><input class="form-control" id="cAddr" required autocomplete="street-address"><div class="invalid-feedback">Informe o endereço de entrega.</div></div>
+                <div class="col-sm-5"><label class="form-label" for="cCity">Bairro / cidade</label><input class="form-control" id="cCity" required><div class="invalid-feedback">Informe bairro e cidade.</div></div>
+              </div></div>
+              <div class="col-12"><label class="form-label" for="cNote">Observação do pedido ou mensagem de presente</label><textarea class="form-control" id="cNote" rows="3" placeholder="Ex.: Parabéns, Ana! Com carinho, Pedro"></textarea></div>
+            </div>
+          </form>
+          <div class="panel" id="step3" hidden>
+            <h2 class="h4 mb-4" style="font-size:1.5rem">Como você prefere pagar?</h2>
+            <div class="row g-3">
+              <div class="col-md-6"><label class="opt"><input class="form-check-input" type="radio" name="pay" value="Pix" checked><span><strong>Pix</strong><small>Aprovação imediata. A chave vai no WhatsApp.</small></span></label></div>
+              <div class="col-md-6"><label class="opt"><input class="form-check-input" type="radio" name="pay" value="Cartão na entrega"><span><strong>Cartão de crédito ou débito na entrega</strong><small>Levamos a maquininha.</small></span></label></div>
+            </div>
+            <div class="mt-4 p-3" style="background:var(--surface-2);border-radius:16px"><strong>Revise antes de confirmar</strong><div id="reviewBox" class="small muted mt-1"></div></div>
+          </div>
+        </div>
+        <aside class="col-lg-4">
+          <div class="summary position-lg-sticky" style="position:sticky">
+            <h2 class="h5 mb-3" style="font-size:1.3rem">Resumo do pedido</h2>
+            <div id="sumRows"></div>
+            <div class="mt-3"><label class="form-label small mb-1" for="coupon">Cupom de desconto</label>
+              <div class="d-flex gap-2"><input class="form-control" id="coupon" placeholder="Ex.: DOCURA" autocapitalize="characters"><button class="btn btn-line btn-sm" type="button" id="applyCoupon">Aplicar</button></div>
+              <p class="coupon-msg" id="couponMsg" aria-live="polite"></p></div>
+            <div class="d-grid gap-2 mt-3"><button class="btn btn-honey btn-lg" id="nextBtn" type="button"></button><button class="btn btn-line btn-sm" id="backBtn" type="button" hidden>Voltar</button></div>
+            <p class="small muted mt-3 mb-0">Seu pedido vai para a produção e é confirmado por WhatsApp.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-5"><a class="brand mb-3" href="index.html"><span class="brand-name">Cris <span>chocomel</span></span></a><p class="mb-0">Feito à mão com muito carinho. Pães de mel, brigadeiros gourmet, cones trufados e caixas de presente.</p></div>
+      <div class="col-6 col-md-3"><h3 class="h6 text-uppercase" style="letter-spacing:.14em;font-family:var(--f-body);color:var(--on-hero)">Navegue</h3><div class="d-grid gap-1"><a href="index.html">Início</a><a href="produtos.html">Produtos</a><a href="sobre.html">Sobre a loja</a><a href="carrinho.html">Sacola</a><a href="login.html">Entrar</a><a href="cadastro.html">Criar conta</a></div></div>
+      <div class="col-6 col-md-4"><h3 class="h6 text-uppercase" style="letter-spacing:.14em;font-family:var(--f-body);color:var(--on-hero)">Pedidos</h3><p>Confirmação pelo WhatsApp.</p><a class="btn btn-honey btn-sm wa-link" href="https://wa.me/" target="_blank" rel="noopener">Falar no WhatsApp</a></div>
+    </div>
+    <hr style="border-color:rgba(255,244,220,.18);margin-block:2rem 1rem"><p class="small mb-0">© 2026 Cris Chocomel. Todos os direitos reservados.</p>
+  </div>
+</footer>
+<div class="toast-wrap" id="toasts" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/carrinho.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+/* cadastro.css — página de cadastro */
+.perks{display:grid;gap:.6rem;list-style:none;padding:0;margin:1.5rem 0 0;color:var(--on-hero)}
+.perks li{display:flex;gap:.6rem;align-items:flex-start}
+.perks svg{color:var(--honey);margin-top:.2em}
+.logged-code{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;padding:1rem;margin-bottom:1.5rem;background:var(--surface-2);border-radius:16px}
+.logged-code strong{font-size:1.6rem}

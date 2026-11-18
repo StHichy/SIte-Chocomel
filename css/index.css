@@ -1,0 +1,40 @@
+/* index.css — página inicial: hero animado, abelhas, faixa de sabores, categorias, como pedir */
+.hero h1 em{font-style:normal;color:var(--honey);position:relative;white-space:nowrap}
+.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:-.08em;height:.14em;background:var(--honey);border-radius:99px;transform-origin:left;animation:underline .9s .9s both cubic-bezier(.2,.8,.2,1)}
+@keyframes underline{from{transform:scaleX(0)}}
+.word{display:inline-block;animation:rise .8s both cubic-bezier(.2,.8,.2,1)}
+@keyframes rise{from{opacity:0;transform:translateY(.5em)}}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;max-width:34rem}
+.trust div{padding:.8rem;border:1px solid rgba(255,244,220,.16);border-radius:14px;background:rgba(255,244,220,.05);font-size:.8rem;color:var(--hero-muted);line-height:1.35}
+.trust strong{display:block;color:var(--on-hero);font-size:.9rem}
+.scene{position:relative;aspect-ratio:1/1;max-width:30rem;margin-inline:auto}
+.scene>*{position:absolute}
+.hexa{inset:6% 4% 6% 4%;background:var(--honey);clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);animation:spinslow 40s linear infinite}
+.hexb{inset:14% 12% 14% 12%;background:var(--hero);clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);opacity:.18}
+.scene .main{inset:12%;animation:float 6s ease-in-out infinite}
+.scene .s1{width:34%;left:-4%;bottom:6%;animation:float 5s -1s ease-in-out infinite;rotate:-8deg}
+.scene .s2{width:34%;right:-2%;bottom:14%;animation:float 5.5s -2s ease-in-out infinite;rotate:8deg}
+.scene .stamp{width:30%;top:-2%;right:0;animation:spinslow 18s linear infinite;color:var(--on-hero)}
+.scene .stamp text{fill:var(--honey-ink);font:700 9.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase}
+.scene .stamp .disc{fill:var(--on-hero)}
+@keyframes float{50%{translate:0 -12px}}
+@keyframes spinslow{to{rotate:360deg}}
+.bee{position:absolute;width:46px;z-index:2;animation:fly 9s ease-in-out infinite}
+.bee.b2{width:34px;animation-duration:12s;animation-delay:-4s}
+@keyframes fly{0%{translate:0 0;rotate:0deg}25%{translate:60px -40px;rotate:12deg}50%{translate:120px 10px;rotate:-8deg}75%{translate:40px 50px;rotate:10deg}100%{translate:0 0;rotate:0deg}}
+.bee .wing{transform-origin:50% 100%;animation:flap .12s infinite alternate}
+@keyframes flap{to{transform:scaleY(.55)}}
+.marquee{overflow:hidden;background:var(--honey);color:var(--honey-ink);padding:.8rem 0;margin-top:clamp(3rem,7vw,5.5rem);transform:rotate(-1.2deg);width:104%;margin-left:-2%;border-block:3px solid var(--honey-ink)}
+.marquee-track{display:flex;width:max-content;animation:scroll 32s linear infinite;font-family:var(--f-display);font-weight:800;font-size:1.25rem;white-space:nowrap}
+.marquee-track span{padding:0 1.4rem;display:inline-flex;align-items:center;gap:2.8rem}
+.marquee-track span::after{content:"";width:12px;height:14px;background:var(--honey-ink);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.marquee-wrap{overflow:hidden;padding-block:1.2rem}
+.catcard{display:block;text-decoration:none;color:var(--fg);background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:1rem;text-align:center;transition:transform .25s,box-shadow .25s;height:100%;width:100%}
+.catcard:hover{transform:translateY(-5px) rotate(-1deg);box-shadow:var(--shadow);color:var(--fg)}
+.catcard svg{width:100%;max-width:150px;height:auto}
+.catcard strong{font-family:var(--f-display);font-size:1.1rem;display:block}
+.step-n{font-family:var(--f-display);font-weight:800;font-size:3.2rem;line-height:1;color:var(--honey)}
+@media (max-width:575.98px){
+  .scene .s1{left:0}.scene .s2{right:0}
+}
