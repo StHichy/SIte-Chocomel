@@ -1,7 +1,7 @@
 (()=>{
 "use strict";
 /* ===== configuração ===== */
-const WHATSAPP=""; /* ex.: "5511999999999" (código do país + DDD + número). Vazio abre o WhatsApp para escolher o contato. */
+const WHATSAPP="5515988089701"; /* ex.: "5511999999999" (código do país + DDD + número). Vazio abre o WhatsApp para escolher o contato. */
 const DELIVERY_FEE=12;
 const COUPONS={DOCURA:{label:"Cupom Doçura",flat:5},BEMVINDA10:{label:"Boas-vindas 10%",pct:.10,needsUser:true}};
 
