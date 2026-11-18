@@ -2,6 +2,7 @@
 (() => {
 "use strict";
 const { $, $$, brl, esc, art, byId, ico, waLink, reduce, cart, user, coupon: couponStore } = CC;
+const numeroWhatsApp = "5515988089701";
 const DELIVERY_FEE = 12;
 const COUPONS = {
   DOCURA: { label: "Cupom Doçura", flat: 5 },
@@ -68,8 +69,7 @@ function placeOrder() {
   const num = "CC-" + String(Math.floor(1000 + Math.random() * 9000));
   const lines = items.map(i => `• ${i.q}x ${i.name} (${brl(i.sub)})`).join("\n");
   const txt = `Olá, Cris! Gostaria de confirmar o pedido ${num}:\n${lines}\n\nSubtotal: ${brl(t.sub)}\nEntrega: ${t.fee ? brl(t.fee) : "Grátis"}${t.disc ? `\nDesconto: -${brl(t.disc)}` : ""}\nTotal: ${brl(t.total)}\n\nRecebimento: ${f.mode === "entrega" ? "Entrega - " + f.addr + ", " + f.city : "Retirada no ateliê"}\nPagamento: ${pay}\nNome: ${f.name} (${f.wpp})${f.note ? "\nObservação: " + f.note : ""}`;
-  $("#waSend").href = waLink(txt);
-  $("#doneNum").textContent = num;
+  $("#waSend").href = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(txt)}`;  $("#doneNum").textContent = num;
   $("#doneMsg").textContent = `Obrigada, ${f.name.split(" ")[0]}! Toque no botão abaixo para enviar o pedido e receber a confirmação da Cris no WhatsApp.`;
   $("#doneList").innerHTML = items.map(i => `<div class="sum-row"><span>${i.q}x ${esc(i.name)}</span><span>${brl(i.sub)}</span></div>`).join("") + `<div class="sum-row sum-total"><span>Total</span><span>${brl(t.total)}</span></div>`;
   cart.clear(); coupon = null; couponStore.set(null);
